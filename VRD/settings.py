@@ -25,7 +25,7 @@ SECRET_KEY = 'h+8t+2ta_fqp$o095+cyxf+r1t%2ls*^*#0*5#%$js!$-gvqwv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','https://tracevehicle.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','tracevehicle.herokuapp.com']
 
 
 # Application definition
