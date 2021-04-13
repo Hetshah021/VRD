@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- <link rel="icon" href="assets/images/H_logo_link_icon.png" type="image/png" sizes="16x16"> -->
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{% static './css/login.css' %}">
+</head>
+<body>
+    <section class="header-section">
+        <div class="header container">
+            <img src="{% static 'img/delivery.svg' %}" class="logo" alt="">
+        </div>
+    </section>
+    <section class="login-page-section">
+        <div class="login-page container">
+            <div class="row">
+                <div class="col-6 banner-container">
+                    <div>
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                    </div>
+                </div>
+                <div class="col-6 form-container">
+                    <div class="">
+                        <form method="POST">
+                             {% csrf_token %}
+                            <h1>Sign in</h1>
+                            <input type="text" placeholder="Username" name="username" pattern="[A-Za-z0-9]*"/>
+                            <input type="password" placeholder="Password" name="password"/>
+                            <a href="{% url 'reset_password' %}">Forgot your password?</a>
+                            <button type="submit">Sign In</button>
+                            {% if error %}
+                                <h6 class="mt-4" style="font-size:0.9rem; color:red">{{error}}</h6>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

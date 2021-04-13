@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Frank+Ruhl+Libre&family=Pontano+Sans&display=swap');
+
+:root {
+    --dark: #073b3a;
+    --light: #d8f3dc;
+    --primary: #04471c;
+    --acent: #5f010a;
+    --primary-font: 'Frank Ruhl Libre', serif;
+    --secondary-font: 'Pontano Sans', sans-serif;
+    --heading-font: 'Bebas Neue', cursive;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: var(--primary-font);
+	background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ebebec 0%, #f1ecec 74%);
+    color: var(--dark);
+}
+
+h1 {
+	font-weight: bold;
+	margin: 0;
+    margin-bottom: 0.5rem;
+	font-family: var(--secondary-font);
+}
+
+h2 {
+	text-align: center;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+span {
+	font-size: 12px;
+}
+
+a {
+	color: var(--dark);
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid var(--dark);
+	background-color: var(--dark);
+	color: var(--light);
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+	font-family: var(--secondary-font);
+	cursor: pointer;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+form {
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #fff;
+	border: 1px solid lightgrey ;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    border-radius: 20px;
+    height: 40px;
+}
+
+input:focus {
+	outline-width: 0;
+}
+
+.login-page {
+    padding-top: 2rem;
+}
+
+.login-page .row {
+	min-height: 480px;
+	max-width: 768px;
+	background: #4ea367;
+	background: -webkit-linear-gradient(to right, var(--dark), #4ea367);
+	background: linear-gradient(to right, var(--dark), #4ea367);
+	border-radius: 10px;
+}
+
+.login-page .col-6 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.login-page .col-6.banner-container {
+	padding: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	text-align: center;
+}
+
+.login-page .col-6.form-container {
+	background: white;
+	padding: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+
+/* Header Section */
+.header-section {
+    display: contents;
+}
+
+.header-section .header {
+    padding: 0.8rem;
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.header-section .header .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.header-section .header a {
+    color: var(--acent);
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+}
+
+.header-section .header a i {
+    margin: auto 0.5rem;
+    font-size: 1.5rem;
+}
+

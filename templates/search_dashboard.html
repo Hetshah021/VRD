@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <!-- <link rel="icon" href="assets/images/H_logo_link_icon.png" type="image/png" sizes="16x16"> -->
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Custom Css -->
+        <link rel="stylesheet" href="{% static './css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static './css/sidenav.css' %}">
+    </head>
+    <body>
+
+        <div class="sidenav">
+            <div>
+                <div class="sidenav-profile">
+                    <img src="{% static './img/account.svg' %}" alt="">
+                    <h4>{{user.username}}</h4>
+                    <hr>
+                </div>
+                <div class="sidenav-link">
+                    <a href="/home"><i class="fa fa-home" aria-hidden="true"></i>
+                        Home</a>
+                    <a href="/search" class="active"><i class="fa fa-search" aria-hidden="true"></i>
+                        Search</a>
+                    <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i>
+                        Profile</a>
+                    <a href="/user_logout"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                        Logout</a>
+                </div> 
+            </div> 
+        </div>
+        <section class="main-section">
+            <section>
+                <div class="bg-wrapper"></div>
+                <div class="main">
+                    <div class="dashboard-cards">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="dashboard-card">
+                                    <h2>10</h2>
+                                    <p>Working Cameras</p>
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="dashboard-card">
+                                    <h2>10</h2>
+                                    <p>Working Cameras</p>
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="dashboard-card">
+                                    <h2>10</h2>
+                                    <p>Working Cameras</p>
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="search-section">
+                <div class="search container">
+                    <h1><i class="fa fa-search mr-4" aria-hidden="true"></i>Start Tracking.....</h1>
+                    <div class="tracking-table col-7">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Vehicle Number</th>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form method="POST" accept-charset="utf-8">
+                                    {% csrf_token %}
+                                    <tr>
+
+                                        <td><input type="text" name="vehicle_no" placeholder="GJ-XX-XX-XXXX" pattern="^[A-Z]{2}[-][0-9]{1,2}[-][A-Z]{1,2}[-][0-9]{3,4}$"></td>
+                                        <td><input type="date" name="search_date" placeholder="Date"></td>
+                                        <td>
+                                            <select class="form-control" name="location"  id="">
+                                                <option value="all">...</option>
+                                                {% for camera in camera_details %}
+                                                    <option value="{{ camera.location }}">{{ camera.location }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </td>
+                                        <td><button type="submit" class="primary-link">Search</button></td>
+                                    </tr>
+                                </form>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="result-section">
+                <div class="result container">
+                    <h1><i class="fa fa-cogs mr-4" aria-hidden="true"></i>Details......</h1>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="slidecontainer1">
+                                <h5>Accuracy Level For Vehicle No.</h5>
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
+                                <p>Value: <span id="demo1"></span></p>
+                                <h5>Range of Date</h5>
+                                <input type="range" min="1" max="5" value="2" class="slider1" id="myRange2">
+                                <p>Value: <span id="demo2"></span></p>
+                            </div>
+
+                        </div>
+                        <div class="col-4">
+                            <div class="selected-attribute">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Vehicle No. : </td>
+                                            <td>
+                                                {% if vehicle_no %}
+                                                    <p>{{vehicle_no}}</p>
+                                                {% else %}
+                                                    <p>None</p>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date : </td>
+                                            <td>
+                                                {% if date %}
+                                                    <p>{{date}}</p>
+                                                {% else %}
+                                                    <p>None</p>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Location : </td>
+                                            <td>
+                                                {% if location %}
+                                                    <p>{{location}}</p>
+                                                {% else %}
+                                                    <p>All</p>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details-table">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Entry No.</th>
+                                    <th>Vehicle No.</th>
+                                    <th>Location</th>
+                                    <th>Camera ID</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if vehicle_details %}
+                                    {% for vehicle in vehicle_details %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{ vehicle.0 }}</td>
+                                            <td>{{ vehicle.1 }}</td>
+                                            <td>{{ vehicle.2 }}</td>
+                                            <td>{{ vehicle.3 }}</td>
+                                            <td>{{ vehicle.4 }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td rowspan="5">No Record Found</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </section> 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            var slider1 = document.getElementById("myRange1");
+            var output1 = document.getElementById("demo1");
+            output1.innerHTML = slider1.value;
+
+            slider1.oninput = function() {
+              output1.innerHTML = this.value;
+            }
+            var slider2 = document.getElementById("myRange2");
+            var output2 = document.getElementById("demo2");
+            output2.innerHTML = slider2.value;
+
+            slider2.oninput = function() {
+              output2.innerHTML = this.value;
+            }
+        </script>
+    </body>
+</html>

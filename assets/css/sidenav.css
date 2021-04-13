@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Frank+Ruhl+Libre&family=Pontano+Sans&display=swap');
+
+:root {
+    --dark: #073b3a;
+    --light: #d8f3dc;
+    --primary: #04471c;
+    --acent: #5f010a;
+    --primary-font: 'Frank Ruhl Libre', serif;
+    --secondary-font: 'Pontano Sans', sans-serif;
+    --heading-font: 'Bebas Neue', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: #d7e1ec;
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    color: var(--dark);
+    background: white;
+}
+
+.sidenav .sidenav-profile {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.sidenav .sidenav-profile img {
+    width: 120px;
+}
+
+.sidenav .sidenav-profile h4 {
+    font-family: var(--heading-font);
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.sidenav .sidenav-profile hr {
+    background: var(--acent);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidenav a {
+    padding: 0.7rem 3rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--dark);
+    display: block;
+    border-left: 3px solid transparent;
+    font-family: var(--primary-font);
+    transition: 0.5s all;
+}
+
+.sidenav a:hover, .sidenav a.active {
+    border-left: 3px solid var(--dark);
+    color: var(--primary);
+    transition: 0.5s all;
+    background: rgb(240, 236, 236);
+}
+
+.sidenav a i {
+    font-size: 1.4rem;
+    margin-right: 0.4rem;
+    color: rgb(8, 68, 35);
+}
+
+.sidenav a:nth-child(2),
+.sidenav a:nth-child(2) i {
+    color: rgb(165, 17, 17);
+}
+
+.sidenav a:nth-child(3),
+.sidenav a:nth-child(3) i {
+    color: rgb(51, 14, 136);
+}
+
+.sidenav a:nth-child(4),
+.sidenav a:nth-child(4) i {
+    color: rgb(95, 29, 9);
+}

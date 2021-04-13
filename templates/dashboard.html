@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <!-- <link rel="icon" href="assets/images/H_logo_link_icon.png" type="image/png" sizes="16x16"> -->
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Custom Css -->
+        <link rel="stylesheet" href="{% static './css/dashboard.css' %}">
+        <link rel="stylesheet" href="{% static './css/sidenav.css' %}">
+    </head>
+    <body>
+
+        <div class="sidenav">
+            <div>
+                <div class="sidenav-profile">
+                    <img src="{% static './img/account.svg' %}" alt="">
+                    <h4><h4>{{user.username}}</h4></h4>
+                    <hr>
+                </div>
+                
+                <div class="sidenav-link">
+                    <a href="/home" class="active"><i class="fa fa-home" aria-hidden="true"></i>
+                        Home</a>
+                    <a href="/search"><i class="fa fa-search" aria-hidden="true"></i>
+                        Search</a>
+                    <a href="/profile"><i class="fa fa-user" aria-hidden="true"></i>
+                        Profile</a>
+                    <a href="/user_logout"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                        Logout</a>
+                </div> 
+            </div> 
+        </div>
+        <section class="main-section">
+            <section>
+                <div class="bg-wrapper"></div>
+                <div class="main">
+                    <div class="dashboard-cards">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="dashboard-card">
+                                    <h2>10</h2>
+                                    <p>Working Cameras</p>
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="dashboard-card">
+                                    <h2>10</h2>
+                                    <p>Working Cameras</p>
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="dashboard-card">
+                                    <h2>10</h2>
+                                    <p>Working Cameras</p>
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="camera-section">
+                <div class="camera-details container">
+                    <h1>Camera Details....</h1>
+                    <div class="details-table">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr. No</th>
+                                    <th scope="col">Camera Id</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if camera_details %}
+                                    {% for camera in camera_details %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{ camera.cameranum }}</td>
+                                            <td>{{ camera.location }}</td>
+                                            <td>{{ camera.status }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td rowspan="4">No Record Found</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section> 
+        </section> 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Frank+Ruhl+Libre&family=Pontano+Sans&display=swap');
+
+:root {
+  --dark: #073b3a;
+  --light: #d8f3dc;
+  --primary: #04471c;
+  --acent: #5f010a;
+  --primary-font: 'Frank Ruhl Libre', serif;
+  --secondary-font: 'Pontano Sans', sans-serif;
+  --heading-font: 'Bebas Neue', cursive;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: var(--primary-font);
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ebebec 0%, #f1ecec 74%);
+}
+
+.primary-link {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background: var(--dark);
+    color: white;
+    width: max-content;
+    border-radius: 25px;
+    transition: all 0.3s;
+    min-width: 100px;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0.3rem;
+}
+
+.primary-link:hover {
+    text-decoration: none;
+    color: var(--light);
+    background: var(--primary);
+    transition: all 0.3s;
+}
+
+.secondary-link {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background: white;
+    color: var(--dark);
+    width: max-content;
+    border: 1px solid var(--dark);
+    border-radius: 25px;
+    min-width: 100px;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0.3rem;
+}
+
+.secondary-link:hover {
+    text-decoration: none;
+    color: var(--dark);
+}
+::selection{
+  color: #fff;
+  background: var(--dark);
+}
+
+.container{
+  width: 380px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 50px 45px 10px 45px;
+}
+.container header {
+  display: flex;
+  justify-content: space-around;
+}
+.container header img {
+  width: 35px;
+  margin-bottom: 30px;
+}
+.container header h1{
+  font-size: 35px;
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  color: var(--dark);
+  margin: 0 0 30px 0;
+}
+.container .form-outer{
+  width: 100%;
+  overflow: hidden;
+}
+.container .form-outer form{
+  display: flex;
+  width: 400%;
+}
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outer form .page .title{
+  text-align: left;
+  margin-left: 1.5rem;
+  font-size: 25px;
+  font-weight: 500;
+}
+.form-outer form .page .field{
+  width: 330px;
+  height: 45px;
+  margin: 45px auto;
+  display: flex;
+  position: relative;
+}
+form .page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input{
+  height: 40px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 30px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+form .page .field button {
+  width: 100%;
+  height: calc(100%);
+  border: none;
+  background: var(--primary);
+  margin-top: -20px;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.5s ease;
+  border-radius: 30px;
+	font-size: 1rem;
+	padding: 12px 45px;
+  text-transform: uppercase;
+	font-family: var(--secondary-font);
+}
+form .page .field button:hover{
+  background: var(--dark);
+}
+form .page .btns button{
+  margin-top: -20px!important;
+}
+form .page .btns button.prev{
+  margin-right: 3px;
+  font-size: 1rem;
+}
+form .page .btns button.next{
+  margin-left: 3px;
+}
+.container .progress-bar{
+  display: flex;
+  margin: 40px 0;
+  user-select: none;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid var(--dark);
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color: var(--dark);
+  background: var(--dark);
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -61px;
+  height: 3px;
+  width: 54px;
+  background: var(--dark);
+}
+.progress-bar .step .bullet.active:after{
+  background: var(--dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color: var(--dark);
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
+}

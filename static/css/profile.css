@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Frank+Ruhl+Libre&family=Pontano+Sans&display=swap');
+
+:root {
+    --dark: #073b3a;
+    --light: #d8f3dc;
+    --primary: #04471c;
+    --acent: #5f010a;
+    --primary-font: 'Frank Ruhl Libre', serif;
+    --secondary-font: 'Pontano Sans', sans-serif;
+    --heading-font: 'Bebas Neue', cursive;
+}
+
+* {
+	margin: 0;
+    padding: 0;
+}
+
+.primary-link {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background: var(--dark);
+    color: white;
+    width: max-content;
+    border-radius: 25px;
+    transition: all 0.3s;
+    min-width: 100px;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0.3rem;
+}
+
+.primary-link:hover {
+    text-decoration: none;
+    color: var(--light);
+    background: var(--primary);
+    transition: all 0.3s;
+}
+
+.secondary-link {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background: white;
+    color: var(--dark);
+    width: max-content;
+    border: 1px solid var(--dark);
+    border-radius: 25px;
+    min-width: 100px;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 0.3rem;
+}
+
+.secondary-link:hover {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.profile-section {
+    padding: 2rem;
+    height: 100vh;
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ebebec 0%, #f1ecec 74%);
+}
+
+.profile-section .profile {
+    max-width: 700px;
+    background: white;
+    border-radius: 5px;
+}
+
+.profile-section .profile .profile-image {
+    background: #4ea367;
+	background: -webkit-linear-gradient(to right, var(--dark), #4ea367);
+	background: linear-gradient(to right, var(--dark), #4ea367);
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.profile-section .profile .profile-image h3 {
+    color: white;
+    font-size: 1.2rem;
+    font-family: var(--heading-font);
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.profile-section .profile .profile-image h3 img {
+    width: 35px;
+    margin-right: 0.5rem;
+}
+
+.profile-section .profile .profile-image img {
+    width: 130px;
+    align-items: center;
+}
+
+.profile-section .profile .profile-image .change-password-link {
+    margin-top: 1rem;
+}
+.profile-section .profile .profile-image .change-password-link a.secondary-link {
+
+    padding: 0.3rem 1.1rem;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--light);
+    font-size: 0.8rem;
+    margin: 0rem;
+}
+
+.profile-section .profile .profile-content {
+    padding: 1rem;
+    padding-right: 2rem;
+}
+
+.profile-section .profile .profile-content table {
+    border-collapse:separate; 
+    border-spacing:0 15px; 
+}
+
+.profile-section .profile .profile-content table span {
+    font-size: 12px;
+    color: grey;
+}
+.profile-section .profile .profile-content table tr th {
+    border: none;
+    font-family: var(--heading-font);
+    font-weight: normal;
+    color: var(--dark);
+    letter-spacing: 1px;
+    width: 130px;
+    padding: 0.5rem 1rem;
+}
+
+.profile-section .profile .profile-content table tr td {
+    border: none;
+    font-family: var(--primary-font);
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+}
+
+.profile-section .profile .profile-content table tr td input {
+    border: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-section .profile .profile-content table tr td input:focus {
+    outline-width: 0;
+}
+
+.profile-section .profile .profile-content .action-link {
+    display: flex;
+    justify-content: center;
+    padding: 0.1rem 1rem;
+}
+
+
