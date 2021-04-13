@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from home.views import *
 from django.contrib.auth import views as auth_views
+from django.views.static import serve
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,9 @@ urlpatterns = [
     path('user_login/', user_login, name='user_login'),
     path('user_logout/', user_logout, name='user_loout'),
     # path('forget/', forget, name='forget'),
+
+     url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 
 
