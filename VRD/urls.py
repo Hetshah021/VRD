@@ -24,7 +24,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),
+    path('/', include('home.urls')),
     path('detect/', include('detect.urls')),
     path('user_login/', user_login, name='user_login'),
     path('user_logout/', user_logout, name='user_loout'),
